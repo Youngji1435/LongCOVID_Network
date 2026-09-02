@@ -2491,11 +2491,12 @@ rho_labels <- rho_sp %>%
 p_sp_scatter <- ggplot(node_sp, aes(x = strength, y = pagerank)) +
   geom_smooth(method = "lm", se = FALSE, color = "grey60",
               linetype = "dashed", linewidth = 0.6) +
-  geom_point(aes(color = category), size = 2.5, alpha = 0.9) +
-  geom_text_repel(aes(label = symptom_clean), size = 3, max.overlaps = 100) +
+  geom_point(aes(color = category), size = 3, alpha = 0.9) +
+  geom_text_repel(aes(label = symptom_clean), size = 4.1,
+                  max.overlaps = 100, box.padding = 0.35) +
   geom_text(data = rho_labels,
             aes(x = -Inf, y = Inf, label = label),
-            hjust = -0.1, vjust = 1.5, size = 3.8, fontface = "italic",
+            hjust = -0.1, vjust = 1.5, size = 5.2, fontface = "italic",
             inherit.aes = FALSE) +
   facet_wrap(~ group, scales = "free") +
   scale_color_manual(values = category_colors, drop = FALSE) +
@@ -2504,11 +2505,17 @@ p_sp_scatter <- ggplot(node_sp, aes(x = strength, y = pagerank)) +
        title = "Most connected vs most influential: strength against weighted PageRank",
        subtitle = "Within-network ranks are nearly identical (rho = 0.999); influence redistribution appears between networks",
        color = "Category") +
-  theme_bw(base_size = 12) +
-  theme(strip.text = element_text(face = "bold"),
+  theme_bw(base_size = 16) +
+  theme(strip.text = element_text(face = "bold", size = 15),
+        plot.title = element_text(size = 17, face = "bold"),
+        plot.subtitle = element_text(size = 13.5),
+        axis.title = element_text(size = 15),
+        axis.text = element_text(size = 12.5),
+        legend.text = element_text(size = 13.5),
+        legend.title = element_text(size = 14),
         legend.position = "bottom")
 ggsave(file.path(out_dir, "figures", "revision_5B_strength_vs_pagerank.png"),
-       p_sp_scatter, width = 13, height = 7, dpi = 300)
+       p_sp_scatter, width = 13.5, height = 7.5, dpi = 300)
 print(p_sp_scatter)
 
 ########################################################################
