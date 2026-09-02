@@ -69,10 +69,19 @@ sensitivity and diagnostic material not shown in the paper.
 
 ## Reproducibility
 
+As stated in the manuscript:
+
+> *"To allow the analysis pipeline to be exercised end-to-end despite
+> data-access restrictions, the repository additionally provides a
+> fully synthetic dataset that reproduces the variable schema and
+> per-group marginal symptom prevalences of the cohort (generated so
+> that no real individual is recoverable), together with a script that
+> regenerates all figures and tables from it, and a worked example on
+> a publicly available symptom dataset."*
+
 The original cohort data are governed by the Korea Disease Control and
-Prevention Agency (KDCA) and cannot be redistributed. To allow the
-pipeline to be inspected and tested end-to-end despite this
-restriction, the repository provides:
+Prevention Agency (KDCA) and cannot be redistributed. The three
+resources referenced above are provided in this repository as follows:
 
 **1. Synthetic reproduction.** `data/synthetic_longcovid.xlsx` mirrors
 the variable schema and per-group marginal symptom prevalences of the
